@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+	<title>Sepal ULI Tools</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+		crossorigin="anonymous">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+		crossorigin="anonymous">
+	<!-- site -->
+	<link rel="styleshet" href="site.css">
+</head>
+
+<body ng-app="uliApp" class="container">
+	<h1>ULI Tools</h1>
+	<div ng-controller="mainCtrl">
+
+
+		<div class="row">
+			<h4>ULI Checksum Generator</h4>
+			<div class="form-horizontal">
+			<div class="form-group">
+				<label class="col-xs-4">Legal Entity Identifier</label>
+				<input class="col-xs-5" type="text" name="" ng-model="legalEntityIdentifier" length="20">
+			</div>
+			<div class="form-group">
+				<label class="col-xs-4">Financial Institution unique Loan identity</label>
+				<input class="col-xs-5" type="text" name="" ng-model="loanIdentifier" length="23">
+			</div>
+<!--
+			<div class="form-group">
+				<label class="col-xs-4">Universal Loan Identifier</label>
+				<input class="col-xs-5" type="text" name="" ng-model="ULI" ng-disabled="">
+			</div>
+			<div class="form-group">
+				<label class="col-xs-4">Universal Loan Identifier(number format)</label>
+				<input class="col-xs-5" type="text" name="" ng-model="nULI" disabled="true">
+			</div>
+-->
+			<div class="form-group">
+				<label class="col-xs-4">CheckSum</label>
+				<input class="col-xs-1" type="text" name="" value="{{checksum}}" disabled="true">
+			</div>
+
+			<div class="form-group">
+				<label class="col-xs-4">Universal Loan Identifier</label>
+			<!--	<input class="col-xs-5" type="text" name="" value="{{ ULI + checksum }}" disabled="true">-->
+				<pre class="col-xs-5">{{ ULI + checksum }}</pre>
+			</div>
+			</div>
+		</div>
+		<div class="row">
+			<h4>ULI Verify</h4>
+			<div class="form-group">
+				<label class="col-xs-4">Universal Loan Identifier</label>
+				<input class="col-xs-5" type="text" name="" ng-model="uli" length="48">
+				<button class="col-xs-1 col-xs-offset-1 btn btn-sm" ng-click="checkULI()" ng-enabled="uli">Check</button>
+
+				<div class="col-xs-9 alert alert-success" role="alert" ng-show="uliStatus === true">
+					<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+					<span class="sr-only">Error:</span>Valide Universal Loan Identifier
+				</div>
+				<div class="col-xs-9 alert alert-danger" role="alert" ng-show="uliStatus === false">
+					<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					<span class="sr-only">Error:</span>Invalide Universal Loan Identifier
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+		crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+	<script src="big.js"></script>
+	<script src='script.js'></script>
+</body>
+
+</html>
