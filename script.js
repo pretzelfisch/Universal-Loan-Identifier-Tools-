@@ -32,7 +32,7 @@ angular.module("uliApp", [])
                 }
                 $scope.nULI += "00";
                 var bigNum = new Big($scope.nULI);
-                $scope.checksum = 98 - bigNum.mod(97);
+                $scope.checksum = (98 - bigNum.mod(97)).toLocaleString('en-US',{minimumIntegerDigits:2,});
 
             } catch (error) {
                 console.error(error);
@@ -48,7 +48,7 @@ angular.module("uliApp", [])
                 }
                 var bigNum = new Big(nULI);
                 var modResult = 1 * bigNum.mod(97).toFixed() ;
-                $scope.uliStatus = modResult == 1 ? true : false;
+                $scope.uliStatus = modResult === 1 ? true : false;
                 return;
             } catch (error) {
                 console.error(error);
